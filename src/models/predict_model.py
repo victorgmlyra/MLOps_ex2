@@ -10,12 +10,13 @@ from torchvision import transforms
 
 from model import MyAwesomeModel
 from load_data import load_data
+import hydra
 
-
+@hydra.main(config_name="basic.yaml")
 @click.command()
 @click.argument("pretrained_model", type=click.Path(exists=True))
 @click.argument("test_imgs_path", type=click.Path())
-def main(pretrained_model, test_imgs_path):
+def main(cfg, pretrained_model, test_imgs_path):
     model = MyAwesomeModel()
     state_dict = torch.load(pretrained_model)
     model.load_state_dict(state_dict)

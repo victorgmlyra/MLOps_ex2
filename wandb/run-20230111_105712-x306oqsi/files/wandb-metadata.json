@@ -1,0 +1,89 @@
+{
+    "os": "Linux-6.0.12-76060006-generic-x86_64-with-glibc2.35",
+    "python": "3.9.15",
+    "heartbeatAt": "2023-01-11T09:57:12.916415",
+    "startedAt": "2023-01-11T09:57:12.387810",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "data/processed",
+        "models/test_run",
+        "reports/figures"
+    ],
+    "state": "running",
+    "program": "/home/victorlyra/Documents/DTU/MLOps/MLOps_ex/src/models/train_model.py",
+    "codePath": "src/models/train_model.py",
+    "git": {
+        "remote": "git@github.com:victorgmlyra/MLOps_ex2.git",
+        "commit": "3edfe61b70e6f4d7161fb75547c543d3a48f0026"
+    },
+    "email": "victorgmlyra@gmail.com",
+    "root": "/home/victorlyra/Documents/DTU/MLOps/MLOps_ex",
+    "host": "pop-os",
+    "username": "victorlyra",
+    "executable": "/home/victorlyra/anaconda3/envs/mlops/bin/python3",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2.3283750000000003,
+        "min": 800.0,
+        "max": 3800.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2.5,
+            "min": 800.0,
+            "max": 3800.0
+        },
+        {
+            "current": 2.5,
+            "min": 800.0,
+            "max": 3800.0
+        },
+        {
+            "current": 2.503,
+            "min": 800.0,
+            "max": 3800.0
+        },
+        {
+            "current": 2.499,
+            "min": 800.0,
+            "max": 3800.0
+        },
+        {
+            "current": 2.8,
+            "min": 800.0,
+            "max": 3800.0
+        },
+        {
+            "current": 2.502,
+            "min": 800.0,
+            "max": 3800.0
+        },
+        {
+            "current": 2.5,
+            "min": 800.0,
+            "max": 3800.0
+        },
+        {
+            "current": 2.499,
+            "min": 800.0,
+            "max": 3800.0
+        }
+    ],
+    "disk": {
+        "total": 7.747779846191406,
+        "used": 0.0001220703125
+    },
+    "gpu": "NVIDIA GeForce GTX 1050 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1050 Ti",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 15.495559692382812
+    }
+}

@@ -12,6 +12,10 @@ import torch
 from torch import nn, optim
 import matplotlib.pyplot as plt
 
+import wandb
+
+
+
 @click.command()
 @click.argument('input_filepath', type=click.Path(exists=True))
 @click.argument('model_output_filepath', type=click.Path())
@@ -24,6 +28,14 @@ def main(input_filepath, model_output_filepath, figs_output_filepath, lr):
     logger = logging.getLogger(__name__)
     logger.info('Train the network from processed data')
 
+    config = {
+        "learning_rate": lr,
+        "epochs": 10,
+        "batch_size": 64
+    }
+    wandb.init(project="test-project", entity="vgml", config=config)
+    wandb.watch(model, log_freq=5)
+
     if not os.path.exists(model_output_filepath):
         os.mkdir(model_output_filepath)
     
@@ -34,7 +46,7 @@ def main(input_filepath, model_output_filepath, figs_output_filepath, lr):
     train_set = load_data(input_filepath + '/train.npz')
     trainloader = torch.utils.data.DataLoader(train_set, batch_size=64, shuffle=True)
 
-    epochs = 10
+    epochs = 20
     losses = []
     for e in range(epochs):
         running_loss = 0
@@ -52,6 +64,7 @@ def main(input_filepath, model_output_filepath, figs_output_filepath, lr):
         else:
             print(f"Training loss: {running_loss/len(trainloader)}")
             losses.append(running_loss/len(trainloader))
+            wandb.log({"loss": running_loss/len(trainloader)})
     
     torch.save(model.state_dict(), model_output_filepath + '/trained_model.pth')
     plt.plot(losses)
